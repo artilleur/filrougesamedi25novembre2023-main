@@ -1,0 +1,19 @@
+GET http://127.0.0.1:8000/api/adresses
+Accept: application/json
+
+
+
+###
+GET http://127.0.0.1:8000/api/produits
+Accept: application/json
+
+###
+
+
+GET http://127.0.0.1:8000/api/produits
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/categories
+Accept: application/json

@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}facture index{% endblock %}
+
+{% block body %}
+    <h1>facture N°</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>commande</th>
+                {# <th>date commande</th> #}
+                <th>nom</th>
+                <th>prenom</th>
+                <th>email</th>
+                <th>telephone</th>
+                <th>Adresse livraison</th>
+                <th>Adresse facturation</th>
+                <th>produit</th>
+                <th>prix</th>
+                <th>quantite</th>
+
+                
+                {# <th>Commentaire</th>
+                <th>actions</th> #}
+            </tr>
+        </thead>
+        <tbody>
+        {% for facture in factures %}
+            <tr>
+                <td>{{ facture.idCommande }}</td>
+                
+                <td>{{ facture.cliNom }}</td>
+                <td>{{ facture.cliPrenom }}</td>
+                <td>{{ facture.cliEmail }}</td>
+                <td>{{ facture.cliTelephone }}</td>
+                <td>{{ facture.comId }}</td>
+                <td>{{ facture.adresseLivraison }}</td>
+                 <td>{{ facture.adresseFacturation }}</td>
+                <td>{{ facture.produit }}</td> 
+                <td>{{ facture.prix }}</td>
+                <td>{{ facture.quantite }}</td>
+                <td>
+                     <a href="{{ path('app_facture_show', {'id': facture.id}) }}">show</a> 
+                    {# <a href="{{ path('app_commande_crud_edit', {'id': commande.id}) }}">edit</a> #}
+                </td>
+            </tr>
+              {# <a href="{{ path('app_facture_show', {'id': facture.id}) }}">show</a> #}
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {# <a href="{{ path('app_commande_crud_new') }}">Create new</a> #}
+{% endblock %}

@@ -1,0 +1,43 @@
+ {% extends 'base.html.twig' %}
+
+{% block title %}facturation facture{% endblock %} 
+
+{% block body %}
+   
+
+   
+   
+    <table class="table">
+        <thead>
+            <tr>
+                 <th colspan="6">n° commande</th>
+                 <th >date</th>
+                <th colspan="6">produits</th>
+                <th colspan="6">prix</th>
+                <th colspan="6">quantite</th>
+                 <th colspan="6">adresse livraison</th> 
+                 <th colspan="6">adresse_facturation</th> 
+            </tr>
+        </thead>
+        <tbody>
+        {% for commande in commandes %}
+
+                <td colspan="6">{{ commande.com_id }}</td>
+               <td colspan="5">{{ commande.date|date("Y-m-d H:i:s") }}</td>
+                <td colspan="6">{{ commande.p_nom }}</td>
+                <td colspan="6">{{ commande.prix }}</td>
+                 <td colspan="6">{{ commande.quantite }}</td>
+                 <td colspan="6">{{ commande.adresse_livraison }}</td>
+                 <td colspan="6">{{ commande.adresse_facturation }}</td>
+                 
+                  </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+     {# <a href="{{ path('app_commande_crud_show', {'id': .id}) }}">show</a> #}
+ {% endblock %}  

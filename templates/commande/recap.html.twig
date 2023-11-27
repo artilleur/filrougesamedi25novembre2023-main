@@ -1,0 +1,116 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Hello CommandeController!{% endblock %}
+
+{% block body %}
+
+
+
+<div class ="col-6">
+ <section class="row">
+            <div class="col-12">
+<table class="table";
+                    <thead>
+                        <tr>
+                            <th>Produit</th>
+                            <th>Prix</th>
+                            <th>Quantité</th>
+                            <th>Total</th>
+                            {# <th>Action</th> #}
+                        </tr>
+                    </thead>
+                    <tbody>
+                    
+
+
+
+
+                        {% for element in data %}
+                            <tr>
+                                <td>{{ element.product.nom }}</td>
+                                <td>{{ element.product.prix }} €</td>
+                                <td>{{ element.quantity }}</td>
+                                <td>{{ element.quantity * element.product.prix }} €</td>
+                                
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="5">Votre panier est vide</td>
+                            </tr>    
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+
+                       
+
+                        
+                         <tr>
+                            <td colspan="3">tva</td>
+                            
+                            <td>{{ tva  }} %</td>
+                                
+                          </tr>
+
+                           <tr>
+                            <td colspan="3">remise</td>
+                            
+                            <td>{{ remise  }} %</td>
+                                
+                          </tr>
+
+                          <tr>
+                            <td colspan="3">totaltva+remise</td>
+                            
+                            <td>{{ totaltva  }} €</td>
+                                
+                           </tr>
+                        <tr>
+                            <td colspan="3">frais de port</td>
+                            {% if totaltva<100 %}
+                            <td>{{ fdp }} €</td>
+                            
+                            {% endif %}
+
+                            {% if totaltva>100 %}
+                            <td> 0 €</td>
+                            
+                            {% endif %}
+                              </tr>
+
+
+
+                        <tr>
+                            
+                            
+                             <td colspan="3">Total</td>
+                            
+                            <td>{{ total }}
+                            </td>
+                                
+                            
+                        </tr>
+                    </tfoot>
+                </table>
+
+                
+                
+                 
+                </div>
+
+
+
+
+
+
+
+
+<form method="POST" action="{{ path('payment_stripe', {id: id}) }}">
+        <button class="btn btn-lg btn-primary" type="submit"
+        style="border-radius: 6px; position: relative; top:20px;">paiement securisé
+        | {{total}} €
+        </button>
+    </form>
+    
+
+    {% endblock %}

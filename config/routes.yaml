@@ -1,0 +1,6 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+app_facturation_facture:
+    path: '/facturation/facture/{id}'
+    controller: 'App\Controller\FacturationController::facture'

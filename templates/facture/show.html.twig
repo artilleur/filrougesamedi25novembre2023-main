@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}Facture{% endblock %}
+
+    
+
+{% block body %}
+
+  
+
+
+   <div class="container">
+		<div class="row">
+			<div class="col-12  text-center ">
+   <h3 class='body2'>facture N°</h3>  <td>FACT{{ facture.id+1000 }}</td>
+   <br><br><br>
+   <h1 class='body2'>commande N°</h1>  <td>COM{{ facture.idCommande+1000 }}</td>
+
+
+
+
+   
+    <br><br><br>
+
+    {# <div class="col-7 col sm-3   text-center"> #}
+   <table class="table">
+   
+        <thead>
+       
+        <tr class='body2'>
+                <th class=body>nom</th>
+                <th class=body>prenom</th>
+                <th class=body>email</th>
+                <th class=body>telephone</th>
+                </tr>
+        </thead>
+        <tbody>
+        <tr>
+         <td>{{ facture.cliNom }}</td>
+                <td>{{ facture.cliPrenom }}</td>
+                <td>{{ facture.cliEmail }}</td>
+                <td>{{ facture.cliTelephone }}</td>
+                </tr>
+             
+        </tbody>
+    </table>
+
+<br><br><br>
+
+<ta<div class="container">
+		<div class="row">
+			<div class="col-12 sm-3  text-center ">
+            <div>
+            <h4 class='body2'>Adresse livraison</h4> <td>{{ facture.adresseLivraison }}</td><br><br>
+                <h4 class='body2'>Adresse facturation</h4>
+                {# <td>{{ facture.adresseLivraison }}</td><br> #}
+                 <td>{{ facture.adresseFacturation }}</td><br>
+                 </div>
+                <br><br><br><br><br>
+
+
+   <table class="table">
+   
+        <thead>
+       
+        <tr class='body2'>
+         
+                <th class=body>produit</th>
+                <th class=body>prix</th>
+                <th class=body>quantite</th>
+                </tr>
+        </thead>
+        <tbody>
+        <tr>
+                <td>{{ facture.produit }}</td>
+                <td>{{ facture.prix }}</td>
+                <td>{{ facture.quantite }}</td>
+                
+             
+        </tbody>
+    </table>
+        <tbody> 
+
+           
+
+  
+    {# {{ include('facture/_delete_form.html.twig') }}  #}
+{% endblock %}

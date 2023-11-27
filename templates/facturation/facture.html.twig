@@ -1,0 +1,123 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}facturation facture{% endblock %}
+
+{# templates/facturation/facture.html.twig #}
+
+
+
+{% block body %}
+   
+    <div class='container'>
+        <div class='row'>    
+            <img src="/images/image.png" class="logo "> 
+                <div class='col-6 my-auto'>
+                    <div>Facture N° {{ facId }}</div><br><br>
+                     <div>(Commande N°  {{ comId }}  du  {{ comDate ? comDate|date('Y-m-d') : '' }})</div><br>
+                      <div>Date : {{ facDate ? facDate|date('Y-m-d') : '' }}</div><br>
+                      
+                </div>
+                <br><br>
+            <div class='border mb-2 py-2'>
+            <br>
+            Client<br>nom/adresse/telephone :  <br> {{ adresse }} ,<br>email: {{ email }}<br><br>
+            </div>
+            
+            <div class='border py-3'>
+            Adresse de facturation :<br> {{ adresseFac }}<br>
+            </div>
+        </div>
+    
+    <div class='mt-5'> Description de la commande </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>REF.</th>
+                <th>DESIGNATION</th>
+                <th>P U</th>
+                <th>Quantité</th>
+                <th>Total HT</th>
+                
+                <th>Tva</th>
+                 <th>remise</th>
+                <th>prix ttc(+ remise)</th>
+                
+                  {# <th>prix final</th> #}
+              
+            </tr>
+        </thead>
+        <tbody>
+        {% set finalTotal = 0 %}
+         {# {% if 'ROLE=ROLE_COMMERCE' %}
+        {% set tva = 15 %}
+        {% else %}
+        {% set tva = 20 %}
+
+        {% endif %} #}
+        
+        {# {% if 'ROLE=ROLE_ADMIN' %}
+        {% set tva = 10 %}
+        {% endif %}
+        {% if 'ROLE=ROLE_USER' %}
+        {% set tva = 20 %}
+        {% endif %} #}
+
+        {% for commande in commandes %}
+            <tr>
+             <td>{{ commande.p_id }}</td>
+              <td>{{ commande.p_nom }}</td>
+                <td>{{ commande.p_prix }}</td>
+                <td>{{ commande.p_quantite }}</td>
+                <td>{{ commande.p_SousTotal }}</td>
+                <td>{{ tva }}%</td>
+                  <td>{{ remise }}%</td>
+                <td>{{ (commande.p_SousTotal* tva/100)+commande.p_SousTotal -(commande.p_SousTotal * remise/100)| round(2) }} €</td>
+              
+                
+             {% set finalTotal = finalTotal + (commande.p_SousTotal * tva/100)+commande.p_SousTotal-(commande.p_SousTotal * remise/100) | round(2) %}
+    </tr>
+{% else %}
+    <tr>
+        <td colspan="10">no records found</td>
+    </tr>
+{% endfor %}
+
+          
+          <tfoot>
+    <tr>
+        <td colspan="3"></td>
+        <td colspan="4">Total ttc + remise</td>
+        
+        <td colspan="4">{{ finalTotal | round(2) }} €</td>
+    </tr>
+     <tr>
+        <td colspan="3"></td>
+        <td colspan="4">frais de port </td>
+       {% if finalTotal<100 %}
+        <td colspan="4">5</td>
+
+        
+       
+    </tr>
+    <tr>
+     <td colspan="4"></td>
+     <td>{{ finalTotal | round(2)+5  }} €</td>
+     </tr>
+     {% else  %}
+     <td colspan="3">0</td>
+
+        
+       
+    </tr>
+    <tr>
+     <td colspan="7"></td>
+     <td>{{ finalTotal | round(2)+0  }} €</td>
+     </tr>
+     {% endif %}
+</tfoot>
+          
+    </table>
+
+   
+    </div>
+{% endblock %}
