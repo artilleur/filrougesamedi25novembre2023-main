@@ -13,9 +13,11 @@
 				<p>{{produit.prix}}€</p>
 				<p>{{produit.description}}</p>
 				<p>l'id est : {{produit.id}}</p>
-				<p>le stock est de : {{produit.stock}}</p>
 
-				<a href="{{ path('cart_add', {id:produit.id}) }}" class="btn btn-success">Ajouter au panier</a>
+				<p>{% if produit.stock==0 %} EN RUPTURE {% elseif produit.stock>0 %}le stock est de : {{produit.stock}} {% endif %}</p>
+
+				<a {% if produit.stock==0 %} EN RUPTURE {% elseif produit.stock>0 %} href="{{ path('cart_add', {id:produit.id}) }}" class="btn btn-success" 
+					>Ajouter au panier{% endif %}</a>
 				
 			</div>
 		{% endblock %}

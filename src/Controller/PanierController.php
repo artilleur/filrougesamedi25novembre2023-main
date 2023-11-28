@@ -48,6 +48,8 @@ class PanierController extends AbstractController
     {
         //On récupère l'id du produit
         $id = $product->getId();
+        $stock= $product->getStock();
+
 
         // On récupère le panier existant
         $panier = $session->get('panier', []);
@@ -56,8 +58,11 @@ class PanierController extends AbstractController
         // Sinon on incrémente sa quantité
         if(empty($panier[$id])){
             $panier[$id] = 1;
-        }else{
+        }elseif ($stock> $panier[$id]){
             $panier[$id]++;
+        }
+        else{
+            $panier[$id] = $panier[$id];
         }
 
         $session->set('panier', $panier);

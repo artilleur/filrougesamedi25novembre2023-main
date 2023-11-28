@@ -26,7 +26,8 @@ class SousCategorieCrudController extends AbstractCrudController
         
             TextField::new('nom'),
             //TextField::new('image')->setFormType(VichImageType::class)->onlyWhenCreating(),
-            ImageField::new('image')->setUploadDir('public/images'),
+            TextField::new('imageFile')->setFormType(VichImageType::class),
+            ImageField::new('image')->setBasePath('/images')->onlyOnIndex(),
             AssociationField::new('categorie')
             // ->setFormTypeOption([
             //     'query_builder' => function (EntityRepository $er) {
