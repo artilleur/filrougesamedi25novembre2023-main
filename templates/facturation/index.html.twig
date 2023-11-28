@@ -11,7 +11,20 @@
                 <div class='col-6 my-auto'>
                     <div>Bon de livraison N° BON000{{ facId }}</div><br><br>
                      <div>(Commande N°  {{ comId }}  du  {{ comDate ? comDate|date('Y-m-d') : '' }})</div><br>
-                     <div>date expedition {{ comDate|date('Y-m-d H:i:s')|date_modify('+48 hours')|date('Y-m-d') }}</div><br>
+                    {# Assuming comDate is a DateTime object #}
+
+{% set deliveryDate = comDate|date_modify('+48 hours') %}
+
+{# Loop to skip weekends #}
+{% for i in 1..2 %} {# Assuming 48 hours won't span more than two days #}
+    {% set deliveryDate = deliveryDate|date_modify('+1 day') %}
+    {% if deliveryDate|date('N') >= 6 %} {# 6 and 7 are Saturday and Sunday #}
+        {% set deliveryDate = deliveryDate|date_modify('+1 day') %}
+    {% endif %}
+{% endfor %}
+
+<div>date expedition {{ deliveryDate|date('Y-m-d ') }}</div><br>
+
 
                      <div>Date impression : {{ "now"|date('Y-m-d') }}</div><br>
                       
