@@ -11,7 +11,9 @@
                 <div class='col-6 my-auto'>
                     <div>Bon de livraison N° BON000{{ facId }}</div><br><br>
                      <div>(Commande N°  {{ comId }}  du  {{ comDate ? comDate|date('Y-m-d') : '' }})</div><br>
-                      <div>Date : {{ facDate ? facDate|date('Y-m-d') : '' }}</div><br>
+                     <div>date expedition {{ comDate|date('Y-m-d H:i:s')|date_modify('+48 hours')|date('Y-m-d') }}</div><br>
+
+                     <div>Date impression : {{ "now"|date('Y-m-d') }}</div><br>
                       
                 </div>
                 <br><br>
