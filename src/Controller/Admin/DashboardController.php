@@ -3,16 +3,17 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Adresse;
+use App\Entity\Facture;
 use App\Entity\Produit;
+use App\Entity\Commande;
 use App\Entity\Categorie;
 use App\Entity\Utilisateur;
+use App\Entity\SousCategorie;
 use App\Controller\AdresseController;
 use Symfony\Component\HttpFoundation\Response;
 use App\Controller\Admin\AdresseCrudController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Controller\Admin\CategorieCrudController;
-use App\Entity\Facture;
-use App\Entity\SousCategorie;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
@@ -59,6 +60,7 @@ class DashboardController extends AbstractDashboardController
          yield MenuItem::linkToCrud('Utilisateur', 'fa-brands fa-product-hunt', Utilisateur::class);
          yield MenuItem::linkToCrud('Adresse', 'fa-brands fa-product-hunt', Adresse::class);
          yield MenuItem::linkToCrud('Facture', 'fa-brands fa-product-hunt', Facture::class);
+         yield MenuItem::linkToCrud('Commande', 'fa-brands fa-product-hunt', Commande::class);
         //yield MenuItem::linkToCrud('Utilisateur', 'fa-brands fa-product-hunt', Utilisateur::class);
          //yield MenuItem::linkToCrud('sous_Categorie', 'fa-solid fa-shop', SousCategorie::class);
         

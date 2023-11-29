@@ -71,6 +71,33 @@ $(this).toggleClass("fa-heart fa-heart-o");
                             <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/">Categories</a>
                             </li>
+
+							<div>
+    <li>
+        <form>
+            <a class='nav-link' href="{{ path('app_facturation_facture', {'id': 1}) }}">facture</a>
+            
+            {# <a class='nav-link' href="{{ path('app_login') }}">login client</a> #}
+        </form>
+    </li>
+</div>
+{# <div>
+    <li>
+        <form>
+           <div>
+    <li>
+        <form>
+           <div>
+             <a class='nav-link' href="{{ path('app_commande_mon_index', {'id': app.user.id}) }}">mes commande</a> 
+             </div>
+            {# <a class='nav-link' href="{{ path('app_login') }}">login client</a> #}
+        {# </form>
+    </li>
+</div>
+        </form>
+    </li>
+</div> #} 
+
                             {# <li class="nav-item">
                             <a class="nav-link" href="/panier">Panier {{ app.session.get('panier') | length}}</a>
                             </li> #}
@@ -111,6 +138,7 @@ $(this).toggleClass("fa-heart fa-heart-o");
 
 
 										</div>
+										
 									</li>
 									 {% if app.user %}
                                 <li class="nav-item">

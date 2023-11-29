@@ -29,7 +29,7 @@
                  <td colspan="6">{{ commande.quantite }}</td>
                  <td colspan="6">{{ commande.adresse_livraison }}</td>
                  <td colspan="6">{{ commande.adresse_facturation }}</td>
-                 
+                 <td> <a href="{{ path('app_facturation_facture',{id: commande.com_id }) }}">show</a></td>
                   </tr>
         {% else %}
             <tr>

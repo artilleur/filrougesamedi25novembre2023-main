@@ -83,10 +83,10 @@ class Commande
         return $this;
     }
 
-    public function __toString()
-    {
-        return $this->date_commande;
-    }
+    // public function __toString()
+    // {
+    //     return $this->date_commande;
+    // }
     
 
     public function getUtilisateur(): ?utilisateur
