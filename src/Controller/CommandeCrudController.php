@@ -33,7 +33,7 @@ class CommandeCrudController extends AbstractController
             'commandes' => $commandeRepository->myCommande($id)
         ]);
     }
-    #[Route('/facture/{id}', name: 'app_commande_mon_index', methods: ['GET'])]
+    #[Route('/facture/{id}', name: 'app_commande_mon_index2', methods: ['GET'])]
     public function facture(CommandeRepository $commandeRepository, $id): Response
     {
     //     $x = $commandeRepository->findBy(['utilisateur' => $this->getUser()]);
