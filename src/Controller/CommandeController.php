@@ -145,7 +145,7 @@ if ($this->isGranted('ROLE_ADMIN')) {
 } elseif ($this->isGranted('ROLE_COMMERCE')) {
    
    $tva = 20; 
-   $remuse=5;
+   $remise=5;
 }
 
 elseif ($this->isGranted('ROLE_USER')) {
