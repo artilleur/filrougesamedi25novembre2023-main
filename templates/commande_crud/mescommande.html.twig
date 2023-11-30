@@ -12,9 +12,9 @@
             <tr>
                  <th>n° commande</th>
                  <th>date</th>
-                <th>produits</th>
+                {# <th>produits</th>
                 <th>prix</th>
-                <th>quantite</th>
+                <th>quantite</th> #}
                  <th>adresse livraison</th> 
                  <th>adresse_facturation</th> 
             </tr>
@@ -24,9 +24,9 @@
             <tr>
                 <td>{{ commande.com_id }}</td>
                <td>{{ commande.date|date("Y-m-d H:i:s") }}</td>
-                <td>{{ commande.p_nom }}</td>
+                {# <td>{{ commande.p_nom }}</td>
                 <td>{{ commande.prix }}</td>
-                 <td>{{ commande.quantite }}</td>
+                 <td>{{ commande.quantite }}</td> #}
                  <td>{{ commande.adresse_livraison }}</td>
                  <td>{{ commande.adresse_facturation }}</td>
                  

@@ -26,7 +26,7 @@
                 <td>{{ commande.commentaire }}</td>
                 <td>
                     <a href="{{ path('app_commande_crud_show', {'id': commande.id}) }}">show</a>
-                    {# <a href="{{ path('app_commande_crud_edit', {'id': commande.id}) }}">edit</a> #}
+                    <a href="{{ path('app_facturation_facture',{id: commande.id }) }}">facture</a>
                 </td>
             </tr>
         {% else %}

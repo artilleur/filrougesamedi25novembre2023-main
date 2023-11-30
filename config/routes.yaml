@@ -4,3 +4,7 @@
 app_facturation_facture:
     path: '/facturation/facture/{id}'
     controller: 'App\Controller\FacturationController::facture'
+# config/routes.yaml
+app_forgotten_password:
+    path: /forgotten-password
+    controller: App\Controller\SecurityController::forgottenPassword
