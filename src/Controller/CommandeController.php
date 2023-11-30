@@ -66,10 +66,12 @@ if ($this->isGranted('ROLE_ADMIN')) {
 elseif ($this->isGranted('ROLE_USER')) {
     
     $tva = 20; 
+    $remise =0;
 
 } else  {
     
     $tva = 20;
+    $remise = 0;
 }
 
         foreach($panier as $id => $quantity){
@@ -79,7 +81,7 @@ elseif ($this->isGranted('ROLE_USER')) {
             $data[] = [
                 'product' => $product,
                 'quantity' => $quantity,
-                
+                'remise' => $remise,
             ];
             //dd($data);
             $soustotal += $product->getPrix() * $quantity;

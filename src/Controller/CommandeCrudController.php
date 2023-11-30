@@ -21,6 +21,18 @@ class CommandeCrudController extends AbstractController
             'commandes' => $commandeRepository->findAll(),
         ]);
     }
+    #[Route('/test', name: 'app_mes_commandes', methods: ['GET'])]
+    public function mesCommandes(CommandeRepository $commandeRepository, ): Response
+    {
+    //     $x = $commandeRepository->findBy(['utilisateur' => $this->getUser()]);
+    //     $y = $commandeRepository->myCommande();
+    //     dd($y);
+    //    // dd($x[2]->getId());
+    // dd($this->getUser());
+        return $this->render('commande_crud/index.html.twig', [
+            'commandes' => $commandeRepository->findBy(['utilisateur'=>$this->getUser()]),
+        ]);
+    }
 
     #[Route('/mesCommande/{id}', name: 'app_commande_mon_index', methods: ['GET'])]
     public function monIndex(CommandeRepository $commandeRepository, $id): Response
