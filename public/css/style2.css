@@ -503,7 +503,7 @@ custom-advanced-slider-sp-pagination {
 				width: 12px;
 				height: 12px;
 				display: block;
-				background: rgba(255, 255, 255, 0.5);
+				background: rgba(255, 255, 255, 0.973);
 				cursor: pointer;
 				text-indent: -9999px;
 				border-radius: 20px;
@@ -578,7 +578,7 @@ section {
 
 section .section-title {
 	text-align: center;
-	color: #007b5e;
+	color: #f2f7f5;
 	margin-bottom: 50px;
 	text-transform: uppercase;
 }

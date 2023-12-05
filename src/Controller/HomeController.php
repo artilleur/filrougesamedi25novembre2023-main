@@ -37,6 +37,7 @@ class HomeController extends AbstractController
     }
 
     #[Route('/categorie/{categorie}', name: 'app_categorie')]
+    
     public function categorie(Categorie $categorie): Response
     {
   

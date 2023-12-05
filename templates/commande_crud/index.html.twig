@@ -17,7 +17,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for commande in commandes %}
+        {% for commande in commandes | reverse %}
             <tr>
                 <td>{{ commande.id }}</td>
                 <td>{{ commande.dateCommande ? commande.dateCommande|date(' Y-m-d H:i:s') : '' }}</td>
