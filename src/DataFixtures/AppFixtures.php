@@ -377,7 +377,7 @@ class AppFixtures extends Fixture
                             
                             Il faut faire attention dans les réglages il y a une relation entre l'allonge et la puissance on ne pourra jamais obtenir 20 lbs à 31 et inversement 70lbs à 19");
                             $p19->setSousCategorie($sc13);
-                            $p19->setImage("Capture_d’écran_2020-02-07_à_11.50.35.png");
+                            $p19->setImage("arc.jpg");
                             $manager->persist($p19);
 
                             $p20 = new Produit();

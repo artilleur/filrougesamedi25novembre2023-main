@@ -12,9 +12,10 @@
         <div class='row'>    
             <img src="/images/image.png" class="logo "> 
                 <div class='col-6 my-auto'>
-                    <div>Facture N° {{ facId }}</div><br><br>
+                    <div>Facture N° CA80-{{ facId }}</div><br><br>
                      <div>(Commande N°  {{ comId }}  du  {{ comDate ? comDate|date('Y-m-d') : '' }})</div><br>
-                      <div>Date : {{ facDate ? facDate|date('Y-m-d') : '' }}</div><br>
+                     <div>Date : {{  'now'|date('Y-m-d') }}</div><br>
+
                       
                 </div>
                 <br><br>
