@@ -57,6 +57,8 @@ class Produit
     #[ORM\Column(nullable: true)]
     private ?int $stock = null;
 
+    
+
     public function __construct()
     {
         $this->commandeDetails = new ArrayCollection();

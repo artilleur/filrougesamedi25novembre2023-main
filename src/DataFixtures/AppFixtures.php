@@ -533,16 +533,16 @@ class AppFixtures extends Fixture
                             
                             $manager->persist($user2);
 
-                            $adresse2 = new Adresse();
-                            $adresse2->setNom("papie");
-                            $adresse2->setPrenom('luc');
-                            $adresse2->setAdresse("10 rue qui glisse");
-                            $adresse2->setVille("conty");
-                            $adresse2->setCp('80160');
-                            $adresse2->setTelephone("0603689784");
-                            $adresse2->setPays('france');
-                            $adresse2->setUti($user2);
-                            $manager->persist($adresse2);
+                            $adresse1 = new Adresse();
+                            $adresse1->setNom("papie");
+                            $adresse1->setPrenom('luc');
+                            $adresse1->setAdresse("10 rue qui glisse");
+                            $adresse1->setVille("conty");
+                            $adresse1->setCp('80160');
+                            $adresse1->setTelephone("0603689784");
+                            $adresse1->setPays('france');
+                            $adresse1->setUti($user2);
+                            $manager->persist($adresse1);
 
                             $adresse2 = new Adresse();
                             $adresse2->setNom("papie");
