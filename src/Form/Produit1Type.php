@@ -9,6 +9,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 class Produit1Type extends AbstractType
 {
@@ -25,6 +26,10 @@ class Produit1Type extends AbstractType
             ->add('sousCategorie', EntityType::class, [
                 "class" =>SousCategorie::class,
                 'choice_label' =>'nom'
+            ])
+            ->add('stock', IntegerType::class, [
+                'label' => 'Stock',
+                'attr' => ['min' => 100],  // Optionnel: Ajouter un minimum de 0
             ])
         ;
     }
